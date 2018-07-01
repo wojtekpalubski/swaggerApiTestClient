@@ -1,9 +1,11 @@
 package pl.wpe.swaggerApiTestClient.service;
 
 import lombok.extern.java.Log;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import pl.wpe.swaggerApiTestClient.model.SlownikAItem;
 
+import javax.annotation.PostConstruct;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -13,27 +15,33 @@ import java.util.Optional;
 @Log
 @Service
 public class SlownikAService {
-    private final int czasSlownika=1;
+    private final int czasSlownika = 1;
     private List<SlownikAItem> slownikA;
     private Instant ostatniaAktualizacja;
 
-    private void odczytajSlownik() {
-
-    }
-
-    private List<SlownikAItem> getSlownikA() {
+    @PostConstruct
+    private void initSlownik() {
         if (slownikA == null) {
+            log.info("slownikA tworze nowy slownik");
             slownikA = new ArrayList<>();
             odswiezSlownik();
         }
+    }
+
+    @Bean
+    private List<SlownikAItem> getSlownikA() {
+//        if (slownikA == null) {
+//            slownikA = new ArrayList<>();
+//            odswiezSlownik();
+//        }
         Instant teraz = Instant.now();
-        Duration minelo=Duration.between(ostatniaAktualizacja, teraz);
-        log.info("SlownikA od odswiezenia minelo "+minelo.toMinutes()+" minut lub "+minelo.getSeconds()+" sekund");
+        Duration minelo = Duration.between(ostatniaAktualizacja, teraz);
+        log.info("SlownikA od odswiezenia minelo " + minelo.toMinutes() + " minut lub " + minelo.getSeconds() + " sekund");
         if (minelo.toMinutes() >= czasSlownika) {
-            log.info("SlownikA Od ostatniej aktualizacji minelo wiecej niz "+czasSlownika+" minut");
+            log.info("SlownikA Od ostatniej aktualizacji minelo wiecej niz " + czasSlownika + " minut");
             odswiezSlownik();
         }
-        log.info("SlownikA oddaje pozycji: "+slownikA.size());
+        log.info("SlownikA oddaje pozycji: " + slownikA.size());
         return slownikA;
     }
 
