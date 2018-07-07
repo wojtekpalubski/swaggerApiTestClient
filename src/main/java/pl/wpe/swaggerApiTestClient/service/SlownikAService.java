@@ -1,8 +1,10 @@
 package pl.wpe.swaggerApiTestClient.service;
 
 import lombok.extern.java.Log;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import pl.wpe.swaggerApiTestClient.model.SlownikAItem;
 
 import javax.annotation.PostConstruct;
@@ -18,6 +20,9 @@ public class SlownikAService {
     private final int czasSlownika = 1;
     private List<SlownikAItem> slownikA;
     private Instant ostatniaAktualizacja;
+
+    @Autowired
+    RestTemplate restTemplate;
 
     @PostConstruct
     private void initSlownik() {
@@ -72,5 +77,11 @@ public class SlownikAService {
         } else {
             return new SlownikAItem();
         }
+    }
+
+    public List<SlownikAItem> pobierzSlownik(){
+//        RestTemplate rt=new RestTemplate();
+        List<SlownikAItem> sa=restTemplate.getForObject("http://localhost:8081/api/v1/slownik/A", List.class);
+        return sa;
     }
 }

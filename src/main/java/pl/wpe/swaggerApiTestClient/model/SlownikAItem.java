@@ -32,4 +32,13 @@ public class SlownikAItem {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public SlownikAItem() {
+    }
+
+    public SlownikAItem(Long id, String nazwa, String opis) {
+        this.id = id;
+        this.nazwa = nazwa;
+        this.opis = opis;
+    }
 }
