@@ -80,7 +80,6 @@ public class SlownikAService {
     }
 
     public List<SlownikAItem> pobierzSlownik(){
-//        RestTemplate rt=new RestTemplate();
         List<SlownikAItem> sa=restTemplate.getForObject("http://localhost:8081/api/v1/slownik/A", List.class);
         return sa;
     }
