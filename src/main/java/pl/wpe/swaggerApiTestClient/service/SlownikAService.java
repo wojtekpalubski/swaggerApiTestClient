@@ -83,4 +83,8 @@ public class SlownikAService {
         List<SlownikAItem> sa=restTemplate.getForObject("http://localhost:8081/api/v1/slownik/A", List.class);
         return sa;
     }
+
+    public int zliczSlownik(){
+        return pobierzSlownik().size();
+    }
 }

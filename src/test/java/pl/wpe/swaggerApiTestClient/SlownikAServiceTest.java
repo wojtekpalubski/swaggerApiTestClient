@@ -37,6 +37,12 @@ public class SlownikAServiceTest {
                 .thenReturn(mockSlownikA());
         System.out.println(slownikAService.pobierzSlownik());
     }
+    @Test
+    public void pobierzSlownik_test3(){
+        Mockito.when(slownikAService.pobierzSlownik())
+                .thenReturn(mockSlownikA());
+        System.out.println(slownikAService.zliczSlownik());
+    }
 
     public List<SlownikAItem> mockSlownikA(){
         return Arrays.asList(
