@@ -24,8 +24,8 @@ public class SlownikAServiceWiremockTest {
 
     @Test
     public void pobierzSlownik_wiremoct_test1(){
-//        Mockito.when(slownikAService.pobierzSlownik())
-//                .thenReturn(mockSlownikA());
+        Mockito.when(slownikAService.pobierzSlownik())
+                .thenReturn(null);
 
 //        stubFor(get(urlEqualTo("http://localhost:8081/api/v1/slownik/A"))
 //                .willReturn(aResponse()
