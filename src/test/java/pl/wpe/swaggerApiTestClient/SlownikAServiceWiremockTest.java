@@ -24,14 +24,14 @@ public class SlownikAServiceWiremockTest {
 
     @Test
     public void pobierzSlownik_wiremoct_test1(){
-//        Mockito.when(slownikAService.pobierzSlownik())
-//                .thenReturn(mockSlownikA());
+        Mockito.when(slownikAService.pobierzSlownik())
+                .thenReturn(null);
 
-        stubFor(get(urlEqualTo("http://localhost:8081/api/v1/slownik/A"))
-                .willReturn(aResponse()
-                        .withStatus(200)
-                        .withHeader("Content-Type", "application/json")
-                        .withBody("[{\"id\":1,\"nazwa\":\"A1\",\"opis\":\"Pozycja A1\"},{\"id\":2,\"nazwa\":\"A2\",\"opis\":\"Pozycja A2\"}]")));
-        System.out.println(slownikAService.zliczSlownik());
+//        stubFor(get(urlEqualTo("http://localhost:8081/api/v1/slownik/A"))
+//                .willReturn(aResponse()
+//                        .withStatus(200)
+//                        .withHeader("Content-Type", "application/json")
+//                        .withBody("[{\"id\":1,\"nazwa\":\"A1\",\"opis\":\"Pozycja A1\"},{\"id\":2,\"nazwa\":\"A2\",\"opis\":\"Pozycja A2\"}]")));
+//        System.out.println(slownikAService.zliczSlownik());
     }
 }
