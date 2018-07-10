@@ -6,6 +6,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.web.client.RestTemplate;
 import pl.wpe.swaggerApiTestClient.model.SlownikAItem;
 import pl.wpe.swaggerApiTestClient.service.SlownikAService;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static javafx.beans.binding.Bindings.when;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SlownikAServiceTest {
@@ -42,6 +44,7 @@ public class SlownikAServiceTest {
         Mockito.when(slownikAService.pobierzSlownik())
                 .thenReturn(mockSlownikA());
         System.out.println(slownikAService.zliczSlownik());
+        assertEquals(mockSlownikA().size(), 4);
     }
 
     public List<SlownikAItem> mockSlownikA(){
