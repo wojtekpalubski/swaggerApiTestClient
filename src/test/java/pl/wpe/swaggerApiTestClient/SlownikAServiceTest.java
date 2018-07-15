@@ -48,9 +48,9 @@ public class SlownikAServiceTest {
     public List<SlownikAItem> mockSlownikA(){
         return Arrays.asList(
                 new SlownikAItem(1L,"n1","o1"),
-                new SlownikAItem(2l,"n2","o2"),
-                new SlownikAItem(3l,"n3","o3"),
-                new SlownikAItem(4l,"n4","o4")
+                new SlownikAItem(2L,"n2","o2"),
+                new SlownikAItem(3L,"n3","o3"),
+                new SlownikAItem(4L,"n4","o4")
         );
     }
 }
