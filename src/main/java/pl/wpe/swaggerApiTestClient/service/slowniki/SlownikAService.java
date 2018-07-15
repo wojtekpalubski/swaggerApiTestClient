@@ -1,4 +1,4 @@
-package pl.wpe.swaggerApiTestClient.service;
+package pl.wpe.swaggerApiTestClient.service.slowniki;
 
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +51,9 @@ public class SlownikAService {
     }
 
     private void odswiezSlownik() {
-        Long pozycja = Long.valueOf(slownikA.size()) + 1;
+        Long pozycja = (long) slownikA.size() + 1;
         SlownikAItem item = new SlownikAItem();
-        item.setId(Long.valueOf(pozycja));
+        item.setId(pozycja);
         item.setNazwa("A" + pozycja.toString());
         item.setOpis("AO" + pozycja.toString());
         slownikA.add(item);
@@ -80,8 +80,7 @@ public class SlownikAService {
     }
 
     public List<SlownikAItem> pobierzSlownik(){
-        List<SlownikAItem> sa=restTemplate.getForObject("http://localhost:8081/api/v1/slownik/A", List.class);
-        return sa;
+        return restTemplate.getForObject("http://localhost:8081/api/v1/slownik/A", List.class);
     }
 
     public int zliczSlownik(){

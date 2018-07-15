@@ -6,15 +6,13 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.web.client.RestTemplate;
 import pl.wpe.swaggerApiTestClient.model.SlownikAItem;
-import pl.wpe.swaggerApiTestClient.service.SlownikAService;
+import pl.wpe.swaggerApiTestClient.service.slowniki.SlownikAService;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static javafx.beans.binding.Bindings.when;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -49,7 +47,7 @@ public class SlownikAServiceTest {
 
     public List<SlownikAItem> mockSlownikA(){
         return Arrays.asList(
-                new SlownikAItem(1l,"n1","o1"),
+                new SlownikAItem(1L,"n1","o1"),
                 new SlownikAItem(2l,"n2","o2"),
                 new SlownikAItem(3l,"n3","o3"),
                 new SlownikAItem(4l,"n4","o4")

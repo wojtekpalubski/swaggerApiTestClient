@@ -12,7 +12,7 @@ public class ParametryFabryka {
     public static List<SlownikAItem> getListaSlownikAItem(int ilosc){
         List<SlownikAItem> lista=CollectionHelper.newArrayList(ilosc);
         for (int i=0; i<ilosc; i++){
-            lista.add(new SlownikAItem(Long.valueOf(i), String.valueOf(i), String.valueOf(i)));
+            lista.add(new SlownikAItem((long) i, String.valueOf(i), String.valueOf(i)));
         }
 
         return lista;

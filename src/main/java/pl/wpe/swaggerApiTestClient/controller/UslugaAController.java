@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import pl.wpe.swaggerApiTestClient.model.SlownikAItem;
-import pl.wpe.swaggerApiTestClient.service.OperacjaAService;
-import pl.wpe.swaggerApiTestClient.service.OperacjaBService;
+import pl.wpe.swaggerApiTestClient.service.operacje.OperacjaAService;
+import pl.wpe.swaggerApiTestClient.service.operacje.OperacjaBService;
 
 import java.util.List;
 

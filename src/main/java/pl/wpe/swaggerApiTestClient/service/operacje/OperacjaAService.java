@@ -1,8 +1,9 @@
-package pl.wpe.swaggerApiTestClient.service;
+package pl.wpe.swaggerApiTestClient.service.operacje;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.wpe.swaggerApiTestClient.model.SlownikAItem;
+import pl.wpe.swaggerApiTestClient.service.slowniki.SlownikAService;
 
 import java.util.List;
 
