@@ -71,12 +71,15 @@ public class SlownikAService {
     }
 
     public SlownikAItem getSlownikAbyNazwa(String nazwa) {
+        System.out.println("nazwa = [" + nazwa + "]");
+        System.out.println("SlownikAService.getSlownikAbyNazwa");
         Optional<SlownikAItem> item = getSlownikA().stream().filter(s -> s.getNazwa().equals(nazwa)).findFirst();
-        if (item.isPresent()) {
-            return item.get();
-        } else {
-            return new SlownikAItem();
-        }
+        return item.orElse(new SlownikAItem());
+//        if (item.isPresent()) {
+//            return item.get();
+//        } else {
+//            return new SlownikAItem();
+//        }
     }
 
     public List<SlownikAItem> pobierzSlownik(){
@@ -84,6 +87,7 @@ public class SlownikAService {
     }
 
     public int zliczSlownik(){
+        System.out.println("Zliczam pozycje slownika A");
         return pobierzSlownik().size();
     }
 }

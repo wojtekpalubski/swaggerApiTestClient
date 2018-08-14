@@ -1,8 +1,10 @@
 package pl.wpe.swaggerApiTestClient.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @ToString
+@EqualsAndHashCode
 public class SlownikAItem {
     private Long id;
 
