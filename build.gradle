@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.14.RELEASE'
+		springBootVersion = '1.5.15.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -14,8 +14,9 @@ buildscript {
 plugins {
 	id 'java'
 	id 'eclipse'
-	id 'org.springframework.boot' version '1.5.14.RELEASE'
+	id 'org.springframework.boot' version '1.5.15.RELEASE'
 	id 'idea'
+	id 'groovy'
 }
 //apply plugin: 'java'
 //apply plugin: 'eclipse'
@@ -34,7 +35,11 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.codehaus.groovy:groovy-all')
 	compile 'org.projectlombok:lombok:1.18.0'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile "com.github.tomakehurst:wiremock:2.18.0"
 }
+
+sourceSets.main.java.srcDirs = []
+sourceSets.main.groovy.srcDirs += ["src/main/java"]

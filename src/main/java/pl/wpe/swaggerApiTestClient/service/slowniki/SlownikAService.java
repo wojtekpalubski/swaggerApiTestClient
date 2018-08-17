@@ -17,7 +17,6 @@ import java.util.Optional;
 @Log
 @Service
 public class SlownikAService {
-    private final int czasSlownika = 1;
     private List<SlownikAItem> slownikA;
     private Instant ostatniaAktualizacja;
 
@@ -42,6 +41,7 @@ public class SlownikAService {
         Instant teraz = Instant.now();
         Duration minelo = Duration.between(ostatniaAktualizacja, teraz);
         log.info("SlownikA od odswiezenia minelo " + minelo.toMinutes() + " minut lub " + minelo.getSeconds() + " sekund");
+        int czasSlownika = 1;
         if (minelo.toMinutes() >= czasSlownika) {
             log.info("SlownikA Od ostatniej aktualizacji minelo wiecej niz " + czasSlownika + " minut");
             odswiezSlownik();
@@ -63,11 +63,7 @@ public class SlownikAService {
 
     public SlownikAItem getSlownikAbyId(Long id) {
         Optional<SlownikAItem> item = getSlownikA().stream().filter(s -> s.getId().equals(id)).findFirst();
-        if (item.isPresent()) {
-            return item.get();
-        } else {
-            return new SlownikAItem();
-        }
+        return item.orElseGet(SlownikAItem::new);
     }
 
     public SlownikAItem getSlownikAbyNazwa(String nazwa) {
@@ -82,7 +78,7 @@ public class SlownikAService {
 //        }
     }
 
-    public List<SlownikAItem> pobierzSlownik(){
+    public List pobierzSlownik(){
         return restTemplate.getForObject("http://localhost:8081/api/v1/slownik/A", List.class);
     }
 

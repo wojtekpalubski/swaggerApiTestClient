@@ -17,7 +17,7 @@ public class AkcjaA {
         return KOMUNIKAT;
     }
 
-    protected String operacja(String tekst) {
+    String operacja(String tekst) {
         return odwroc(this.getKOMUNIKAT()+tekst);
     }
 
