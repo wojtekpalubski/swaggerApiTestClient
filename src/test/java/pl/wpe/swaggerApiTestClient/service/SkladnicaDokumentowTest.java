@@ -22,7 +22,6 @@ public class SkladnicaDokumentowTest {
     public void znajdzDokument_test1() throws IOException {
         SkladnicaDokumentow skladnicaDokumentow=spy(SkladnicaDokumentow.class);
 
-//        when(skladnicaDokumentow.getDokumenty()).thenReturn(genDokumenty());
         when(skladnicaDokumentow.getDokumenty()).thenReturn(genDokumentyJson());
 
         Dokument znaleziony=skladnicaDokumentow.znajdzDokument(1L);
@@ -64,6 +63,7 @@ public class SkladnicaDokumentowTest {
         assertThat(znaleziony.getAdresZamieszkania().getUlica(),is("Botaniczna"));
     }
 
+    @Deprecated
     private List<Dokument> genDokumenty(){
         List<Dokument> dokumenty=new ArrayList<>();
         dokumenty.add(new Dokument(1L, new DanePersonalne("imie1","nazwisko1")));
