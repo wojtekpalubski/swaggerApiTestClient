@@ -63,6 +63,7 @@ public class SkladnicaDokumentowTest {
         assertThat(znaleziony.getAdresZamieszkania().getUlica(),is("Botaniczna"));
     }
 
+    @Deprecated
     private List<Dokument> genDokumenty(){
         List<Dokument> dokumenty=new ArrayList<>();
         dokumenty.add(new Dokument(1L, new DanePersonalne("imie1","nazwisko1")));
