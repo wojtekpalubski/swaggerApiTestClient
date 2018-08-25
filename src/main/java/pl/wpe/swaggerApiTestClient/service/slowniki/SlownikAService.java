@@ -33,7 +33,7 @@ public class SlownikAService {
     }
 
     @Bean
-    private List<SlownikAItem> getSlownikA() {
+    public List<SlownikAItem> getSlownikA() {
 //        if (slownikA == null) {
 //            slownikA = new ArrayList<>();
 //            odswiezSlownik();

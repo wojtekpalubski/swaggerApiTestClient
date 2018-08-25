@@ -26,6 +26,7 @@ public class SlownikAItem {
 
     private String nazwa;
     private String opis;
+    private String komentarz;
 
     public Long getId() {
         return id;
